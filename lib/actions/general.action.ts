@@ -5,6 +5,7 @@ import {generateObject} from "ai";
 import {google} from "@ai-sdk/google";
 import {feedbackSchema} from "@/constants";
 
+
 export async function getInterviewsByUserId(userId: string): Promise<Interview[] | null> {
     const interviews = await db
         .collection('interviews')
@@ -94,6 +95,31 @@ export async function createFeedback(params: CreateFeedbackParams) {
         return { success: false }
     }
 }
+
+export const createInterview = async ({
+  userId,
+  role,
+  type,
+  techstack,
+}: {
+  userId: string;
+  role: string;
+  type: string;
+  techstack: string;
+}) => {
+  const newInterview = await db.interview.create({
+    data: {
+      userId,
+      role,
+      type,
+      techstack,
+      createdAt: new Date(),
+    },
+  });
+
+  return newInterview;
+};
+
 
 export async function getFeedbackByInterviewId(params: GetFeedbackByInterviewIdParams): Promise<Feedback | null> {
     const { interviewId, userId } = params;
