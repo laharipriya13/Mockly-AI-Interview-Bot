@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import React from 'react'
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
