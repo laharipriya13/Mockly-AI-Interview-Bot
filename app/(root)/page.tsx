@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+export const dynamic = 'force-dynamic';
 import Link from "next/link";
 import Image from "next/image";
 
